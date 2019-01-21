@@ -13,6 +13,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     var detailViewController: DetailViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
+    
 
 
     override func viewDidLoad() {
@@ -31,6 +32,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     override func viewWillAppear(_ animated: Bool) {
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
+        reloadData()
     }
 
     @objc
@@ -62,6 +64,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             if let indexPath = tableView.indexPathForSelectedRow {
             let object = fetchedResultsController.object(at: indexPath)
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
+                controller.delegate = self
                 controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
@@ -115,6 +118,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     
     func configureCell(_ cell: UITableViewCell, withFood food: Food) {
         cell.textLabel!.text = food.name
+        cell.detailTextLabel!.text = String(food.amount)
     }
 
     // MARK: - Fetched results controller
@@ -196,6 +200,20 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
          tableView.reloadData()
      }
      */
+    
+    // MARK: - Methods
+    func reloadData() {
+        self.tableView.reloadData()
+    }
 
+}
+
+extension MasterViewController: DetailViewControllerDelegate {
+    func didUpdateFood(_ food: Food, _ newAmount: Int64) {
+//        if let indexPath = tableView.indexPathForSelectedRow {
+//            let index = indexPath[1]
+//            objects[index].amount = newAmount
+//        }
+    }
 }
 

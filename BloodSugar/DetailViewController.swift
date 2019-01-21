@@ -7,25 +7,31 @@
 //
 
 import UIKit
+import AVFoundation
+
+protocol DetailViewControllerDelegate: class {
+    func didUpdateFood(_ detailItem: Food, _ newAmount: Int64)
+}
 
 class DetailViewController: UIViewController {
+    @IBOutlet weak var detailHeader: UINavigationItem!
+    @IBOutlet weak var detailAmountLabel: UILabel!
+    @IBOutlet weak var additionTextField: UITextField!
+    @IBOutlet weak var subtractionTextField: UITextField!
 
-    @IBOutlet weak var detailDescriptionLabel: UILabel!
-
-
-    func configureView() {
-        // Update the user interface for the detail item.
+    
+    @IBAction func copyToClipboard(_ sender: Any) {
         if let detail = detailItem {
-            if let label = detailDescriptionLabel {
-                label.text = detail.name
-            }
+            UIPasteboard.general.string = String(detail.amount)
+            playSound()
         }
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        configureView()
+    
+    @IBAction func reset(_ sender: Any) {
+        detailItem?.amount = 0
+        guard let food = detailItem else {return}
+        updateAmountText()
+        updateAmountInMasterView(food)
     }
 
     var detailItem: Food? {
@@ -34,7 +40,126 @@ class DetailViewController: UIViewController {
             configureView()
         }
     }
+    
+    weak var delegate: DetailViewControllerDelegate?
+    
+    var action = Action.addition
+    
+    enum Action {
+        case addition
+        case subtraction
+    }
+    
+    func playSound() -> Void {
+        AudioServicesPlaySystemSound(1103)
+    }
+    
+    @IBAction func subtractionInputFocused(_ sender: Any) {
+        print("subtraction focused")
+    }
+    
+    @IBAction func additionInputFocused(_ sender: Any) {
+        print("addition focused")
+    }
+    
+    fileprivate func updateAmountInMasterView(_ food: Food) {
+        if let newAmount = detailItem?.amount {
+            delegate?.didUpdateFood(food, newAmount)
+        }
+    }
+    
+    func addFromInputField() -> Void {
+        print(action)
+        switch action {
+        case Action.addition:
+            if let value = additionTextField.text {
+                if let valueAsInt = Int64(value) {
+                    print(valueAsInt)
+                    detailItem?.amount += valueAsInt
+                    guard let food = detailItem else {return}
+                    updateAmountInMasterView(food)
+                    additionTextField.text = ""
+                }
+                
+            }
+        case Action.subtraction:
+            if let value = subtractionTextField.text {
+                if let valueAsInt = Int64(value) {
+                    detailItem?.amount -= valueAsInt
+                    guard let food = detailItem else {return}
+                    updateAmountInMasterView(food)
+                    subtractionTextField.text = ""
+                }
+                
+            }
+        }
+        updateAmountText()
+    }
+    
+    func configureView() {
+        // Update the user interface for the detail item.
+        if let detail = detailItem {
+            detailHeader.title = detail.name
+            updateAmountText()
+        }
+    }
+    
+    func updateAmountText() {
+        if let detail = detailItem, let detailAmountLabel = detailAmountLabel {
+            detailAmountLabel.text = String(detail.amount)
+        }
+        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        configureView()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(DetailViewController.keyboardWillHide),
+                                               name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        
+        
+        //For hiding keyboard when user taps outside
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        
+        tap.cancelsTouchesInView = false
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        additionTextField.resignFirstResponder()
+        subtractionTextField.resignFirstResponder()
+    }
+    
+    @objc func keyboardWillHide(_ notification: NSNotification) {
+        addFromInputField()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 
 
+}
+
+extension DetailViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        print("should begin editing")
+        if textField == additionTextField {
+            action = Action.addition
+        }
+        if textField == subtractionTextField {
+            action = Action.subtraction
+        }
+        return true
+    }
 }
 
