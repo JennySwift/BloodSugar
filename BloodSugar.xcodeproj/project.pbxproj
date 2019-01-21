@@ -1,0 +1,612 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BDCCF86D21F5DE1E00FBCC9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCCF86C21F5DE1E00FBCC9C /* AppDelegate.swift */; };
+		BDCCF87021F5DE1E00FBCC9C /* BloodSugar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BDCCF86E21F5DE1E00FBCC9C /* BloodSugar.xcdatamodeld */; };
+		BDCCF87221F5DE1E00FBCC9C /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCCF87121F5DE1E00FBCC9C /* MasterViewController.swift */; };
+		BDCCF87421F5DE1E00FBCC9C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCCF87321F5DE1E00FBCC9C /* DetailViewController.swift */; };
+		BDCCF87721F5DE1E00FBCC9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDCCF87521F5DE1E00FBCC9C /* Main.storyboard */; };
+		BDCCF87921F5DE2100FBCC9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDCCF87821F5DE2100FBCC9C /* Assets.xcassets */; };
+		BDCCF87C21F5DE2100FBCC9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDCCF87A21F5DE2100FBCC9C /* LaunchScreen.storyboard */; };
+		BDCCF88721F5DE2100FBCC9C /* BloodSugarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCCF88621F5DE2100FBCC9C /* BloodSugarTests.swift */; };
+		BDCCF89221F5DE2200FBCC9C /* BloodSugarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCCF89121F5DE2200FBCC9C /* BloodSugarUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BDCCF88321F5DE2100FBCC9C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDCCF86121F5DE1E00FBCC9C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDCCF86821F5DE1E00FBCC9C;
+			remoteInfo = BloodSugar;
+		};
+		BDCCF88E21F5DE2200FBCC9C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDCCF86121F5DE1E00FBCC9C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDCCF86821F5DE1E00FBCC9C;
+			remoteInfo = BloodSugar;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BDCCF86921F5DE1E00FBCC9C /* BloodSugar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BloodSugar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDCCF86C21F5DE1E00FBCC9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BDCCF86F21F5DE1E00FBCC9C /* BloodSugar.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BloodSugar.xcdatamodel; sourceTree = "<group>"; };
+		BDCCF87121F5DE1E00FBCC9C /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		BDCCF87321F5DE1E00FBCC9C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		BDCCF87621F5DE1E00FBCC9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BDCCF87821F5DE2100FBCC9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BDCCF87B21F5DE2100FBCC9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BDCCF87D21F5DE2100FBCC9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDCCF88221F5DE2100FBCC9C /* BloodSugarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BloodSugarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDCCF88621F5DE2100FBCC9C /* BloodSugarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodSugarTests.swift; sourceTree = "<group>"; };
+		BDCCF88821F5DE2100FBCC9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDCCF88D21F5DE2200FBCC9C /* BloodSugarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BloodSugarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDCCF89121F5DE2200FBCC9C /* BloodSugarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodSugarUITests.swift; sourceTree = "<group>"; };
+		BDCCF89321F5DE2200FBCC9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BDCCF86621F5DE1E00FBCC9C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDCCF87F21F5DE2100FBCC9C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDCCF88A21F5DE2200FBCC9C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BDCCF86021F5DE1E00FBCC9C = {
+			isa = PBXGroup;
+			children = (
+				BDCCF86B21F5DE1E00FBCC9C /* BloodSugar */,
+				BDCCF88521F5DE2100FBCC9C /* BloodSugarTests */,
+				BDCCF89021F5DE2200FBCC9C /* BloodSugarUITests */,
+				BDCCF86A21F5DE1E00FBCC9C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BDCCF86A21F5DE1E00FBCC9C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BDCCF86921F5DE1E00FBCC9C /* BloodSugar.app */,
+				BDCCF88221F5DE2100FBCC9C /* BloodSugarTests.xctest */,
+				BDCCF88D21F5DE2200FBCC9C /* BloodSugarUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BDCCF86B21F5DE1E00FBCC9C /* BloodSugar */ = {
+			isa = PBXGroup;
+			children = (
+				BDCCF86C21F5DE1E00FBCC9C /* AppDelegate.swift */,
+				BDCCF87121F5DE1E00FBCC9C /* MasterViewController.swift */,
+				BDCCF87321F5DE1E00FBCC9C /* DetailViewController.swift */,
+				BDCCF87521F5DE1E00FBCC9C /* Main.storyboard */,
+				BDCCF87821F5DE2100FBCC9C /* Assets.xcassets */,
+				BDCCF87A21F5DE2100FBCC9C /* LaunchScreen.storyboard */,
+				BDCCF87D21F5DE2100FBCC9C /* Info.plist */,
+				BDCCF86E21F5DE1E00FBCC9C /* BloodSugar.xcdatamodeld */,
+			);
+			path = BloodSugar;
+			sourceTree = "<group>";
+		};
+		BDCCF88521F5DE2100FBCC9C /* BloodSugarTests */ = {
+			isa = PBXGroup;
+			children = (
+				BDCCF88621F5DE2100FBCC9C /* BloodSugarTests.swift */,
+				BDCCF88821F5DE2100FBCC9C /* Info.plist */,
+			);
+			path = BloodSugarTests;
+			sourceTree = "<group>";
+		};
+		BDCCF89021F5DE2200FBCC9C /* BloodSugarUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BDCCF89121F5DE2200FBCC9C /* BloodSugarUITests.swift */,
+				BDCCF89321F5DE2200FBCC9C /* Info.plist */,
+			);
+			path = BloodSugarUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BDCCF86821F5DE1E00FBCC9C /* BloodSugar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDCCF89621F5DE2200FBCC9C /* Build configuration list for PBXNativeTarget "BloodSugar" */;
+			buildPhases = (
+				BDCCF86521F5DE1E00FBCC9C /* Sources */,
+				BDCCF86621F5DE1E00FBCC9C /* Frameworks */,
+				BDCCF86721F5DE1E00FBCC9C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BloodSugar;
+			productName = BloodSugar;
+			productReference = BDCCF86921F5DE1E00FBCC9C /* BloodSugar.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BDCCF88121F5DE2100FBCC9C /* BloodSugarTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDCCF89921F5DE2200FBCC9C /* Build configuration list for PBXNativeTarget "BloodSugarTests" */;
+			buildPhases = (
+				BDCCF87E21F5DE2100FBCC9C /* Sources */,
+				BDCCF87F21F5DE2100FBCC9C /* Frameworks */,
+				BDCCF88021F5DE2100FBCC9C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BDCCF88421F5DE2100FBCC9C /* PBXTargetDependency */,
+			);
+			name = BloodSugarTests;
+			productName = BloodSugarTests;
+			productReference = BDCCF88221F5DE2100FBCC9C /* BloodSugarTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BDCCF88C21F5DE2200FBCC9C /* BloodSugarUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDCCF89C21F5DE2200FBCC9C /* Build configuration list for PBXNativeTarget "BloodSugarUITests" */;
+			buildPhases = (
+				BDCCF88921F5DE2200FBCC9C /* Sources */,
+				BDCCF88A21F5DE2200FBCC9C /* Frameworks */,
+				BDCCF88B21F5DE2200FBCC9C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BDCCF88F21F5DE2200FBCC9C /* PBXTargetDependency */,
+			);
+			name = BloodSugarUITests;
+			productName = BloodSugarUITests;
+			productReference = BDCCF88D21F5DE2200FBCC9C /* BloodSugarUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BDCCF86121F5DE1E00FBCC9C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Jenny Swift";
+				TargetAttributes = {
+					BDCCF86821F5DE1E00FBCC9C = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					BDCCF88121F5DE2100FBCC9C = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = BDCCF86821F5DE1E00FBCC9C;
+					};
+					BDCCF88C21F5DE2200FBCC9C = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = BDCCF86821F5DE1E00FBCC9C;
+					};
+				};
+			};
+			buildConfigurationList = BDCCF86421F5DE1E00FBCC9C /* Build configuration list for PBXProject "BloodSugar" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BDCCF86021F5DE1E00FBCC9C;
+			productRefGroup = BDCCF86A21F5DE1E00FBCC9C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BDCCF86821F5DE1E00FBCC9C /* BloodSugar */,
+				BDCCF88121F5DE2100FBCC9C /* BloodSugarTests */,
+				BDCCF88C21F5DE2200FBCC9C /* BloodSugarUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BDCCF86721F5DE1E00FBCC9C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDCCF87C21F5DE2100FBCC9C /* LaunchScreen.storyboard in Resources */,
+				BDCCF87921F5DE2100FBCC9C /* Assets.xcassets in Resources */,
+				BDCCF87721F5DE1E00FBCC9C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDCCF88021F5DE2100FBCC9C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDCCF88B21F5DE2200FBCC9C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BDCCF86521F5DE1E00FBCC9C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDCCF86D21F5DE1E00FBCC9C /* AppDelegate.swift in Sources */,
+				BDCCF87021F5DE1E00FBCC9C /* BloodSugar.xcdatamodeld in Sources */,
+				BDCCF87221F5DE1E00FBCC9C /* MasterViewController.swift in Sources */,
+				BDCCF87421F5DE1E00FBCC9C /* DetailViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDCCF87E21F5DE2100FBCC9C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDCCF88721F5DE2100FBCC9C /* BloodSugarTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDCCF88921F5DE2200FBCC9C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDCCF89221F5DE2200FBCC9C /* BloodSugarUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BDCCF88421F5DE2100FBCC9C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BDCCF86821F5DE1E00FBCC9C /* BloodSugar */;
+			targetProxy = BDCCF88321F5DE2100FBCC9C /* PBXContainerItemProxy */;
+		};
+		BDCCF88F21F5DE2200FBCC9C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BDCCF86821F5DE1E00FBCC9C /* BloodSugar */;
+			targetProxy = BDCCF88E21F5DE2200FBCC9C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BDCCF87521F5DE1E00FBCC9C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BDCCF87621F5DE1E00FBCC9C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BDCCF87A21F5DE2100FBCC9C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BDCCF87B21F5DE2100FBCC9C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BDCCF89421F5DE2200FBCC9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BDCCF89521F5DE2200FBCC9C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BDCCF89721F5DE2200FBCC9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WC4J3ZAFVB;
+				INFOPLIST_FILE = BloodSugar/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jennyswiftcreations.BloodSugar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BDCCF89821F5DE2200FBCC9C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WC4J3ZAFVB;
+				INFOPLIST_FILE = BloodSugar/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jennyswiftcreations.BloodSugar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BDCCF89A21F5DE2200FBCC9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WC4J3ZAFVB;
+				INFOPLIST_FILE = BloodSugarTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jennyswiftcreations.BloodSugarTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BloodSugar.app/BloodSugar";
+			};
+			name = Debug;
+		};
+		BDCCF89B21F5DE2200FBCC9C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WC4J3ZAFVB;
+				INFOPLIST_FILE = BloodSugarTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jennyswiftcreations.BloodSugarTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BloodSugar.app/BloodSugar";
+			};
+			name = Release;
+		};
+		BDCCF89D21F5DE2200FBCC9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WC4J3ZAFVB;
+				INFOPLIST_FILE = BloodSugarUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jennyswiftcreations.BloodSugarUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BloodSugar;
+			};
+			name = Debug;
+		};
+		BDCCF89E21F5DE2200FBCC9C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WC4J3ZAFVB;
+				INFOPLIST_FILE = BloodSugarUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jennyswiftcreations.BloodSugarUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BloodSugar;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BDCCF86421F5DE1E00FBCC9C /* Build configuration list for PBXProject "BloodSugar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDCCF89421F5DE2200FBCC9C /* Debug */,
+				BDCCF89521F5DE2200FBCC9C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDCCF89621F5DE2200FBCC9C /* Build configuration list for PBXNativeTarget "BloodSugar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDCCF89721F5DE2200FBCC9C /* Debug */,
+				BDCCF89821F5DE2200FBCC9C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDCCF89921F5DE2200FBCC9C /* Build configuration list for PBXNativeTarget "BloodSugarTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDCCF89A21F5DE2200FBCC9C /* Debug */,
+				BDCCF89B21F5DE2200FBCC9C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDCCF89C21F5DE2200FBCC9C /* Build configuration list for PBXNativeTarget "BloodSugarUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDCCF89D21F5DE2200FBCC9C /* Debug */,
+				BDCCF89E21F5DE2200FBCC9C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BDCCF86E21F5DE1E00FBCC9C /* BloodSugar.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BDCCF86F21F5DE1E00FBCC9C /* BloodSugar.xcdatamodel */,
+			);
+			currentVersion = BDCCF86F21F5DE1E00FBCC9C /* BloodSugar.xcdatamodel */;
+			path = BloodSugar.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = BDCCF86121F5DE1E00FBCC9C /* Project object */;
+}
