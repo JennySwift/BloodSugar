@@ -112,6 +112,7 @@ class DetailViewController: UIViewController {
                 caloriesPer100GramsTextField.text = decimalToString(decimal: detail.caloriesPer100Grams)
             }
             if let netCarbsPer100GramsTextField = netCarbsPer100GramsTextField {
+                print(detail.netCarbsPer100Grams)
                 netCarbsPer100GramsTextField.text = decimalToString(decimal: detail.netCarbsPer100Grams)
             }
             
@@ -192,6 +193,7 @@ class DetailViewController: UIViewController {
     
     func decimalToString(decimal: NSDecimalNumber) -> String {
         let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
         let value = formatter.string(from: decimal) ?? ""
         return value
     }
