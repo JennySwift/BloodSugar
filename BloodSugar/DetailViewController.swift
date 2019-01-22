@@ -69,6 +69,12 @@ class DetailViewController: UIViewController {
         }
     }
     
+    func updateName() -> Void {
+        if let value = nameTextField.text {
+            detailItem?.name = value
+        }
+    }
+    
     func addFromInputField() -> Void {
         switch action {
         case Action.addition:
@@ -140,8 +146,13 @@ class DetailViewController: UIViewController {
     }
     
     @objc func keyboardWillHide(_ notification: NSNotification) {
-        if activeTextField == additionTextField || activeTextField == subtractionTextField {
-            addFromInputField()
+        switch activeTextField {
+        case additionTextField, subtractionTextField: addFromInputField()
+        case nameTextField: updateName()
+        case .none:
+            return
+        case .some(_):
+            return
         }
     }
     
