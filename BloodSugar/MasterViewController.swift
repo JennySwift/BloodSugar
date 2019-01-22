@@ -43,7 +43,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         
         // If appropriate, configure the new managed object.
 //        newEvent.timestamp = Date()
-        newFood.name = "Oats"
+        newFood.name = ""
         newFood.amount = 0
 
         // Save the context.
