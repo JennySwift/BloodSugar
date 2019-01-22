@@ -55,6 +55,7 @@
 		BDCCF89321F5DE2200FBCC9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDCCF89F21F5DF0C00FBCC9C /* Food+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataClass.swift"; sourceTree = "<group>"; };
 		BDCCF8A021F5DF0C00FBCC9C /* Food+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BDCCF8A321F6B57E00FBCC9C /* BloodSugar 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "BloodSugar 2.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -609,9 +610,10 @@
 		BDCCF86E21F5DE1E00FBCC9C /* BloodSugar.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				BDCCF8A321F6B57E00FBCC9C /* BloodSugar 2.xcdatamodel */,
 				BDCCF86F21F5DE1E00FBCC9C /* BloodSugar.xcdatamodel */,
 			);
-			currentVersion = BDCCF86F21F5DE1E00FBCC9C /* BloodSugar.xcdatamodel */;
+			currentVersion = BDCCF8A321F6B57E00FBCC9C /* BloodSugar 2.xcdatamodel */;
 			path = BloodSugar.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -103,9 +103,16 @@ class DetailViewController: UIViewController {
     func configureView() {
         // Update the user interface for the detail item.
         if let detail = detailItem {
+            print(detail.caloriesPer100Grams)
             detailHeader.title = detail.name
             if let nameTextField = nameTextField {
                 nameTextField.text = detail.name
+            }
+            if let caloriesPer100GramsTextField = caloriesPer100GramsTextField {
+                caloriesPer100GramsTextField.text = decimalToString(decimal: detail.caloriesPer100Grams)
+            }
+            if let netCarbsPer100GramsTextField = netCarbsPer100GramsTextField {
+                netCarbsPer100GramsTextField.text = decimalToString(decimal: detail.netCarbsPer100Grams)
             }
             
             updateAmountText()
@@ -153,15 +160,17 @@ class DetailViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
-    // Mark: - Update methods
+    // MARK: - Update methods
     func updateCaloriesPer100Grams() -> Void {
         if let value = caloriesPer100GramsTextField.text {
-//            detailItem?.caloriesPer100Grams = value
+            detailItem?.caloriesPer100Grams = stringToDecimal(string: value)
         }
     }
     
     func updateNetCarbsPer100Grams() -> Void {
-        
+        if let value = netCarbsPer100GramsTextField.text {
+            detailItem?.netCarbsPer100Grams = stringToDecimal(string: value)
+        }
     }
     
     func updateName() -> Void {
@@ -174,6 +183,17 @@ class DetailViewController: UIViewController {
         if let detail = detailItem, let detailAmountLabel = detailAmountLabel {
             detailAmountLabel.text = String(detail.amount)
         }
+    }
+    
+    // MARK: - Helpers
+    func stringToDecimal(string: String) -> NSDecimalNumber {
+        return NSDecimalNumber(string: string)
+    }
+    
+    func decimalToString(decimal: NSDecimalNumber) -> String {
+        let formatter = NumberFormatter()
+        let value = formatter.string(from: decimal) ?? ""
+        return value
     }
 
 

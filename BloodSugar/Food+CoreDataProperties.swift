@@ -19,5 +19,7 @@ extension Food {
 
     @NSManaged public var name: String?
     @NSManaged public var amount: Int64
+    @NSManaged public var netCarbsPer100Grams: NSDecimalNumber
+    @NSManaged public var caloriesPer100Grams: NSDecimalNumber
 
 }
