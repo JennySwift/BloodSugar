@@ -18,8 +18,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var detailAmountLabel: UILabel!
     @IBOutlet weak var additionTextField: UITextField!
     @IBOutlet weak var subtractionTextField: UITextField!
-
     
+    @IBOutlet weak var nameTextField: UITextField!
     @IBAction func copyToClipboard(_ sender: Any) {
         if let detail = detailItem {
             UIPasteboard.general.string = String(detail.amount)
@@ -44,6 +44,7 @@ class DetailViewController: UIViewController {
     weak var delegate: DetailViewControllerDelegate?
     
     var action = Action.addition
+    var activeTextField: UITextField?
     
     enum Action {
         case addition
@@ -69,7 +70,6 @@ class DetailViewController: UIViewController {
     }
     
     func addFromInputField() -> Void {
-        print(action)
         switch action {
         case Action.addition:
             if let value = additionTextField.text {
@@ -100,6 +100,10 @@ class DetailViewController: UIViewController {
         // Update the user interface for the detail item.
         if let detail = detailItem {
             detailHeader.title = detail.name
+            if let nameTextField = nameTextField {
+                nameTextField.text = detail.name
+            }
+            
             updateAmountText()
         }
     }
@@ -130,12 +134,15 @@ class DetailViewController: UIViewController {
     }
     
     @objc func dismissKeyboard() {
-        additionTextField.resignFirstResponder()
-        subtractionTextField.resignFirstResponder()
+//        additionTextField.resignFirstResponder()
+//        subtractionTextField.resignFirstResponder()
+        activeTextField?.resignFirstResponder()
     }
     
     @objc func keyboardWillHide(_ notification: NSNotification) {
-        addFromInputField()
+        if activeTextField == additionTextField || activeTextField == subtractionTextField {
+            addFromInputField()
+        }
     }
     
     deinit {
@@ -153,6 +160,7 @@ extension DetailViewController: UITextFieldDelegate {
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         print("should begin editing")
+        activeTextField = textField
         if textField == additionTextField {
             action = Action.addition
         }

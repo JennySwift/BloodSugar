@@ -46,7 +46,7 @@
                                         <rect key="frame" x="0.0" y="68.5" width="335" height="474.5"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="+" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pLA-zA-kUa">
-                                                <rect key="frame" x="0.0" y="207" width="163.5" height="61"/>
+                                                <rect key="frame" x="0.0" y="207" width="106.5" height="61"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="47"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -54,8 +54,17 @@
                                                     <outlet property="delegate" destination="JEX-9P-axG" id="du8-Aq-rK1"/>
                                                 </connections>
                                             </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wER-a8-V1g">
+                                                <rect key="frame" x="114.5" y="222.5" width="106" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="JEX-9P-axG" id="KNa-ea-84Y"/>
+                                                </connections>
+                                            </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="-" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HEJ-h8-MoN">
-                                                <rect key="frame" x="171.5" y="207" width="163.5" height="61"/>
+                                                <rect key="frame" x="228.5" y="207" width="106.5" height="61"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="47"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -109,6 +118,7 @@
                         <outlet property="additionTextField" destination="pLA-zA-kUa" id="YFh-W8-eus"/>
                         <outlet property="detailAmountLabel" destination="b0V-9d-frS" id="5Ax-Pd-e1e"/>
                         <outlet property="detailHeader" destination="mOI-FS-AaM" id="Yci-Kr-JRP"/>
+                        <outlet property="nameTextField" destination="wER-a8-V1g" id="dSm-DC-qYM"/>
                         <outlet property="subtractionTextField" destination="HEJ-h8-MoN" id="1Zo-Mg-hSx"/>
                     </connections>
                 </viewController>
