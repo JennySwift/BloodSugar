@@ -33,7 +33,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mE3-QZ-LXE">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mE3-QZ-LXE">
                                 <rect key="frame" x="20" y="84" width="335" height="563"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0V-9d-frS">
@@ -42,11 +42,105 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="6Ga-JE-Qpv">
+                                        <rect key="frame" x="0.0" y="85.5" width="335" height="106"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="2CH-Ad-nmK">
+                                                <rect key="frame" x="0.0" y="0.0" width="167.5" height="106"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BgS-OM-403">
+                                                        <rect key="frame" x="0.0" y="0.0" width="167.5" height="35.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calories/100g" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jUe-ZB-Q3m">
+                                                        <rect key="frame" x="0.0" y="35.5" width="167.5" height="35.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Net Carbs/100g" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqT-HE-7qd">
+                                                        <rect key="frame" x="0.0" y="71" width="167.5" height="35"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tEx-00-cKF">
+                                                <rect key="frame" x="167.5" y="0.0" width="167.5" height="106"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wNz-jz-dMB" userLabel="Net Carbs/100g">
+                                                        <rect key="frame" x="0.0" y="0.0" width="167.5" height="30"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="JEX-9P-axG" id="xkh-30-79f"/>
+                                                        </connections>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5uN-by-ra7">
+                                                        <rect key="frame" x="0.0" y="38" width="167.5" height="30"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="JEX-9P-axG" id="lQz-TV-v6v"/>
+                                                        </connections>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wER-a8-V1g">
+                                                        <rect key="frame" x="0.0" y="76" width="167.5" height="30"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="JEX-9P-axG" id="KNa-ea-84Y"/>
+                                                        </connections>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QvK-N1-Djb">
+                                        <rect key="frame" x="91" y="230" width="153" height="26.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Calories: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Mz-xn-wJ0">
+                                                <rect key="frame" x="0.0" y="0.0" width="139" height="26.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ci-v4-GJF">
+                                                <rect key="frame" x="139" y="0.0" width="14" height="26.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Mv-Z3-T5z">
+                                        <rect key="frame" x="82" y="334" width="171.5" height="26.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Net Carbs: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ELh-GZ-DAR">
+                                                <rect key="frame" x="0.0" y="0.0" width="157.5" height="26.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xS9-4n-nzV">
+                                                <rect key="frame" x="157.5" y="0.0" width="14" height="26.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="r4f-bc-Rru">
-                                        <rect key="frame" x="0.0" y="68.5" width="335" height="474.5"/>
+                                        <rect key="frame" x="0.0" y="360.5" width="335" height="182.5"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="+" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pLA-zA-kUa">
-                                                <rect key="frame" x="0.0" y="207" width="106.5" height="61"/>
+                                                <rect key="frame" x="0.0" y="61" width="163.5" height="61"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="47"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -54,17 +148,8 @@
                                                     <outlet property="delegate" destination="JEX-9P-axG" id="du8-Aq-rK1"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wER-a8-V1g">
-                                                <rect key="frame" x="114.5" y="222.5" width="106" height="30"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <connections>
-                                                    <outlet property="delegate" destination="JEX-9P-axG" id="KNa-ea-84Y"/>
-                                                </connections>
-                                            </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="-" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HEJ-h8-MoN">
-                                                <rect key="frame" x="228.5" y="207" width="106.5" height="61"/>
+                                                <rect key="frame" x="171.5" y="61" width="163.5" height="61"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="47"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -98,8 +183,10 @@
                                     <constraint firstAttribute="bottom" secondItem="r4f-bc-Rru" secondAttribute="bottom" constant="20" id="3tM-uy-wBz"/>
                                     <constraint firstAttribute="trailing" secondItem="wJV-ed-M8W" secondAttribute="trailing" id="8qb-pq-kbp"/>
                                     <constraint firstItem="r4f-bc-Rru" firstAttribute="leading" secondItem="mE3-QZ-LXE" secondAttribute="leading" id="T2T-xu-2kp"/>
+                                    <constraint firstAttribute="trailing" secondItem="6Ga-JE-Qpv" secondAttribute="trailing" id="aua-KF-GZs"/>
                                     <constraint firstAttribute="trailing" secondItem="r4f-bc-Rru" secondAttribute="trailing" id="eUw-Ds-SKK"/>
                                     <constraint firstItem="wJV-ed-M8W" firstAttribute="leading" secondItem="mE3-QZ-LXE" secondAttribute="leading" id="lpL-lZ-Xw5"/>
+                                    <constraint firstItem="6Ga-JE-Qpv" firstAttribute="leading" secondItem="mE3-QZ-LXE" secondAttribute="leading" id="qxh-Ia-IwJ"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -116,10 +203,14 @@
                     <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
                     <connections>
                         <outlet property="additionTextField" destination="pLA-zA-kUa" id="YFh-W8-eus"/>
+                        <outlet property="caloriesPer100GramsTextField" destination="5uN-by-ra7" id="8SE-t6-dix"/>
                         <outlet property="detailAmountLabel" destination="b0V-9d-frS" id="5Ax-Pd-e1e"/>
                         <outlet property="detailHeader" destination="mOI-FS-AaM" id="Yci-Kr-JRP"/>
                         <outlet property="nameTextField" destination="wER-a8-V1g" id="dSm-DC-qYM"/>
+                        <outlet property="netCarbsPer100GramsTextField" destination="wNz-jz-dMB" id="nA2-VO-uj9"/>
                         <outlet property="subtractionTextField" destination="HEJ-h8-MoN" id="1Zo-Mg-hSx"/>
+                        <outlet property="totalCaloriesLabel" destination="3ci-v4-GJF" id="hmC-CZ-RwT"/>
+                        <outlet property="totalNetCarbsLabel" destination="xS9-4n-nzV" id="WAl-fn-zAN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>

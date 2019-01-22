@@ -18,8 +18,12 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var detailAmountLabel: UILabel!
     @IBOutlet weak var additionTextField: UITextField!
     @IBOutlet weak var subtractionTextField: UITextField!
-    
     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var netCarbsPer100GramsTextField: UITextField!
+    @IBOutlet weak var caloriesPer100GramsTextField: UITextField!
+    @IBOutlet weak var totalCaloriesLabel: UILabel!
+    @IBOutlet weak var totalNetCarbsLabel: UILabel!
+    
     @IBAction func copyToClipboard(_ sender: Any) {
         if let detail = detailItem {
             UIPasteboard.general.string = String(detail.amount)
@@ -69,12 +73,6 @@ class DetailViewController: UIViewController {
         }
     }
     
-    func updateName() -> Void {
-        if let value = nameTextField.text {
-            detailItem?.name = value
-        }
-    }
-    
     func addFromInputField() -> Void {
         switch action {
         case Action.addition:
@@ -114,13 +112,6 @@ class DetailViewController: UIViewController {
         }
     }
     
-    func updateAmountText() {
-        if let detail = detailItem, let detailAmountLabel = detailAmountLabel {
-            detailAmountLabel.text = String(detail.amount)
-        }
-        
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -149,6 +140,8 @@ class DetailViewController: UIViewController {
         switch activeTextField {
         case additionTextField, subtractionTextField: addFromInputField()
         case nameTextField: updateName()
+        case caloriesPer100GramsTextField: updateCaloriesPer100Grams()
+        case netCarbsPer100GramsTextField: updateNetCarbsPer100Grams()
         case .none:
             return
         case .some(_):
@@ -158,6 +151,29 @@ class DetailViewController: UIViewController {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    // Mark: - Update methods
+    func updateCaloriesPer100Grams() -> Void {
+        if let value = caloriesPer100GramsTextField.text {
+//            detailItem?.caloriesPer100Grams = value
+        }
+    }
+    
+    func updateNetCarbsPer100Grams() -> Void {
+        
+    }
+    
+    func updateName() -> Void {
+        if let value = nameTextField.text {
+            detailItem?.name = value
+        }
+    }
+    
+    func updateAmountText() {
+        if let detail = detailItem, let detailAmountLabel = detailAmountLabel {
+            detailAmountLabel.text = String(detail.amount)
+        }
     }
 
 
