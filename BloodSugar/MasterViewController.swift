@@ -13,7 +13,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     var detailViewController: DetailViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
-    
+    var selectedFood: Food?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
     
     func updateLabels() -> Void {
-        self.title = "500" + "N/C" + "     3000" + "C"
+//        self.title = "500" + "N/C" + "     3000" + "C"
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -75,6 +75,11 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
         }
+        if segue.identifier == "showInfo" {
+            let controller = (segue.destination as! UINavigationController).topViewController as! FoodInfoViewController
+            controller.delegate = self
+            controller.detailItem = selectedFood
+        }
     }
 
     // MARK: - Table View
@@ -86,6 +91,11 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionInfo = fetchedResultsController.sections![section]
         return sectionInfo.numberOfObjects
+    }
+    
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        selectedFood = fetchedResultsController.object(at: indexPath)
+        self.performSegue(withIdentifier: "showInfo", sender: indexPath)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -220,5 +230,9 @@ extension MasterViewController: DetailViewControllerDelegate {
 //            objects[index].amount = newAmount
 //        }
     }
+}
+
+extension MasterViewController: FoodInfoViewControllerDelegate {
+    
 }
 

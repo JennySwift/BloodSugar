@@ -18,6 +18,7 @@
 		BDCCF89221F5DE2200FBCC9C /* BloodSugarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCCF89121F5DE2200FBCC9C /* BloodSugarUITests.swift */; };
 		BDCCF8A121F5DF0C00FBCC9C /* Food+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCCF89F21F5DF0C00FBCC9C /* Food+CoreDataClass.swift */; };
 		BDCCF8A221F5DF0C00FBCC9C /* Food+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCCF8A021F5DF0C00FBCC9C /* Food+CoreDataProperties.swift */; };
+		BDCCF8A521F8696800FBCC9C /* FoodInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCCF8A421F8696800FBCC9C /* FoodInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		BDCCF89F21F5DF0C00FBCC9C /* Food+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataClass.swift"; sourceTree = "<group>"; };
 		BDCCF8A021F5DF0C00FBCC9C /* Food+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BDCCF8A321F6B57E00FBCC9C /* BloodSugar 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "BloodSugar 2.xcdatamodel"; sourceTree = "<group>"; };
+		BDCCF8A421F8696800FBCC9C /* FoodInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				BDCCF87121F5DE1E00FBCC9C /* MasterViewController.swift */,
 				BDCCF87321F5DE1E00FBCC9C /* DetailViewController.swift */,
 				BDCCF87521F5DE1E00FBCC9C /* Main.storyboard */,
+				BDCCF8A421F8696800FBCC9C /* FoodInfoViewController.swift */,
 				BDCCF87821F5DE2100FBCC9C /* Assets.xcassets */,
 				BDCCF87A21F5DE2100FBCC9C /* LaunchScreen.storyboard */,
 				BDCCF87D21F5DE2100FBCC9C /* Info.plist */,
@@ -271,6 +274,7 @@
 			files = (
 				BDCCF8A121F5DF0C00FBCC9C /* Food+CoreDataClass.swift in Sources */,
 				BDCCF86D21F5DE1E00FBCC9C /* AppDelegate.swift in Sources */,
+				BDCCF8A521F8696800FBCC9C /* FoodInfoViewController.swift in Sources */,
 				BDCCF87021F5DE1E00FBCC9C /* BloodSugar.xcdatamodeld in Sources */,
 				BDCCF87221F5DE1E00FBCC9C /* MasterViewController.swift in Sources */,
 				BDCCF87421F5DE1E00FBCC9C /* DetailViewController.swift in Sources */,

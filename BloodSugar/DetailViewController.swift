@@ -18,9 +18,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var detailAmountLabel: UILabel!
     @IBOutlet weak var additionTextField: UITextField!
     @IBOutlet weak var subtractionTextField: UITextField!
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var netCarbsPer100GramsTextField: UITextField!
-    @IBOutlet weak var caloriesPer100GramsTextField: UITextField!
+    
     @IBOutlet weak var totalCaloriesLabel: UILabel!
     @IBOutlet weak var totalNetCarbsLabel: UILabel!
     
@@ -103,18 +101,7 @@ class DetailViewController: UIViewController {
     func configureView() {
         // Update the user interface for the detail item.
         if let detail = detailItem {
-            print(detail.caloriesPer100Grams)
             detailHeader.title = detail.name
-            if let nameTextField = nameTextField {
-                nameTextField.text = detail.name
-            }
-            if let caloriesPer100GramsTextField = caloriesPer100GramsTextField {
-                caloriesPer100GramsTextField.text = decimalToString(decimal: detail.caloriesPer100Grams)
-            }
-            if let netCarbsPer100GramsTextField = netCarbsPer100GramsTextField {
-                print(detail.netCarbsPer100Grams)
-                netCarbsPer100GramsTextField.text = decimalToString(decimal: detail.netCarbsPer100Grams)
-            }
             
             updateLabels()
         }
@@ -139,17 +126,12 @@ class DetailViewController: UIViewController {
     }
     
     @objc func dismissKeyboard() {
-//        additionTextField.resignFirstResponder()
-//        subtractionTextField.resignFirstResponder()
         activeTextField?.resignFirstResponder()
     }
     
     @objc func keyboardWillHide(_ notification: NSNotification) {
         switch activeTextField {
         case additionTextField, subtractionTextField: addFromInputField()
-        case nameTextField: updateName()
-        case caloriesPer100GramsTextField: updateCaloriesPer100Grams()
-        case netCarbsPer100GramsTextField: updateNetCarbsPer100Grams()
         case .none:
             return
         case .some(_):
@@ -166,24 +148,6 @@ class DetailViewController: UIViewController {
         updateAmountText()
         updateTotalCaloriesText()
         updateTotalNetCarbsText()
-    }
-    
-    func updateCaloriesPer100Grams() -> Void {
-        if let value = caloriesPer100GramsTextField.text {
-            detailItem?.caloriesPer100Grams = stringToDecimal(string: value)
-        }
-    }
-    
-    func updateNetCarbsPer100Grams() -> Void {
-        if let value = netCarbsPer100GramsTextField.text {
-            detailItem?.netCarbsPer100Grams = stringToDecimal(string: value)
-        }
-    }
-    
-    func updateName() -> Void {
-        if let value = nameTextField.text {
-            detailItem?.name = value
-        }
     }
     
     func updateAmountText() {
