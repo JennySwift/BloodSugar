@@ -13,15 +13,17 @@ protocol DetailViewControllerDelegate: class {
     func didUpdateFood(_ detailItem: Food, _ newAmount: Int64)
 }
 
-class DetailViewController: UIViewController {
-    @IBOutlet weak var detailHeader: UINavigationItem!
-    @IBOutlet weak var detailAmountLabel: UILabel!
+class DetailViewController: UITableViewController {
+    @IBOutlet weak var navItem: UINavigationItem!
+    
+    @IBOutlet weak var caloriesLabel: UILabel!
+    @IBOutlet weak var netCarbsLabel: UILabel!
+    @IBOutlet weak var gramsLabel: UILabel!
+    
     @IBOutlet weak var additionTextField: UITextField!
+    
     @IBOutlet weak var subtractionTextField: UITextField!
-    
-    @IBOutlet weak var totalCaloriesLabel: UILabel!
-    @IBOutlet weak var totalNetCarbsLabel: UILabel!
-    
+
     @IBAction func copyToClipboard(_ sender: Any) {
         if let detail = detailItem {
             UIPasteboard.general.string = String(detail.amount)
@@ -29,13 +31,13 @@ class DetailViewController: UIViewController {
         }
     }
     
+
     @IBAction func reset(_ sender: Any) {
         detailItem?.amount = 0
         guard let food = detailItem else {return}
-        updateAmountText()
+        updateLabels()
         updateAmountInMasterView(food)
     }
-
     var detailItem: Food? {
         didSet {
             // Update the view.
@@ -101,7 +103,7 @@ class DetailViewController: UIViewController {
     func configureView() {
         // Update the user interface for the detail item.
         if let detail = detailItem {
-            detailHeader.title = detail.name
+            navItem.title = detail.name
             
             updateLabels()
         }
@@ -151,20 +153,20 @@ class DetailViewController: UIViewController {
     }
     
     func updateAmountText() {
-        if let detail = detailItem, let detailAmountLabel = detailAmountLabel {
-            detailAmountLabel.text = String(detail.amount)
+        if let detail = detailItem, let label = gramsLabel {
+            label.text = String(detail.amount)
         }
     }
     
     func updateTotalCaloriesText() {
-        if let detail = detailItem, let label = totalCaloriesLabel {
+        if let detail = detailItem, let label = caloriesLabel {
             let value = intToDecimal(int: detail.amount) as Decimal / 100 * (detail.caloriesPer100Grams as Decimal)
             label.text = decimalToString(decimal: NSDecimalNumber(decimal: value))
         }
     }
     
     func updateTotalNetCarbsText() {
-        if let detail = detailItem, let label = totalNetCarbsLabel {
+        if let detail = detailItem, let label = netCarbsLabel {
             let value = intToDecimal(int: detail.amount) as Decimal / 100 * (detail.netCarbsPer100Grams as Decimal)
             label.text = decimalToString(decimal: NSDecimalNumber(decimal: value))
         }
