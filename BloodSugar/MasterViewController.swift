@@ -15,7 +15,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     var managedObjectContext: NSManagedObjectContext? = nil
     
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -27,6 +26,12 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
+        
+        updateLabels()
+    }
+    
+    func updateLabels() -> Void {
+        self.title = "500" + "N/C" + "     3000" + "C"
     }
 
     override func viewWillAppear(_ animated: Bool) {
