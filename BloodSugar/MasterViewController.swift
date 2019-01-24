@@ -17,6 +17,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
                 food.amount = 0
             }
         }
+        updateLabels()
     }
     
     var detailViewController: DetailViewController? = nil
@@ -39,7 +40,39 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
     
     func updateLabels() -> Void {
-//        self.title = "500" + "N/C" + "     3000" + "C"
+        let totalNetCarbs = calculateTotalNetCarbs()
+        let totalCalories = calculateTotalCalories()
+        self.title = "\(totalNetCarbs)N/C      \(totalCalories)C"
+    }
+    
+    func calculateTotalNetCarbs() -> Decimal {
+        var total: Decimal = 0
+        if let foods = fetchedResultsController.fetchedObjects {
+            for food in foods {
+                total += getNetCarbsForFood(food: food)
+            }
+        }
+        return total
+    }
+    
+    func calculateTotalCalories() -> Decimal {
+        var total: Decimal = 0
+        if let foods = fetchedResultsController.fetchedObjects {
+            for food in foods {
+                total += getCaloriesForFood(food: food)
+            }
+        }
+        return total
+    }
+    
+    func getCaloriesForFood(food: Food) -> Decimal {
+        let value = intToDecimal(int: food.amount) as Decimal / 100 * (food.caloriesPer100Grams as Decimal)
+        return value
+    }
+    
+    func getNetCarbsForFood(food: Food) -> Decimal {
+        let value = intToDecimal(int: food.amount) as Decimal / 100 * (food.netCarbsPer100Grams as Decimal)
+        return value
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -230,6 +263,15 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     // MARK: - Methods
     func reloadData() {
         self.tableView.reloadData()
+    }
+    
+    // MARK: - Helpers
+    func intToDecimal(int: Int64) -> NSDecimalNumber {
+        return stringToDecimal(string: String(int))
+    }
+    
+    func stringToDecimal(string: String) -> NSDecimalNumber {
+        return NSDecimalNumber(string: string)
     }
 }
 
