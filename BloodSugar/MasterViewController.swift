@@ -11,6 +11,14 @@ import CoreData
 
 class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
+    @IBAction func reset(_ sender: Any) {
+        if let foods = fetchedResultsController.fetchedObjects {
+            for food in foods {
+                food.amount = 0
+            }
+        }
+    }
+    
     var detailViewController: DetailViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
     var selectedFood: Food?
@@ -51,7 +59,10 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         newFood.name = ""
         newFood.amount = 0
 
-        // Save the context.
+        saveContext(context: context)
+    }
+    
+    func saveContext(context: NSManagedObjectContext) -> Void {
         do {
             try context.save()
         } catch {
@@ -220,7 +231,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     func reloadData() {
         self.tableView.reloadData()
     }
-
 }
 
 extension MasterViewController: DetailViewControllerDelegate {
