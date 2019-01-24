@@ -10,7 +10,14 @@ import UIKit
 import CoreData
 
 class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate {
-
+    // MARK: - Outlets
+   
+    // MARK: - Variables
+    var detailViewController: DetailViewController? = nil
+    var managedObjectContext: NSManagedObjectContext? = nil
+    var selectedFood: Food?
+    
+    // MARK: - IBActions
     @IBAction func reset(_ sender: Any) {
         if let foods = fetchedResultsController.fetchedObjects {
             for food in foods {
@@ -18,92 +25,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             }
         }
         updateLabels()
-    }
-    
-    var detailViewController: DetailViewController? = nil
-    var managedObjectContext: NSManagedObjectContext? = nil
-    var selectedFood: Food?
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        navigationItem.leftBarButtonItem = editButtonItem
-
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
-        navigationItem.rightBarButtonItem = addButton
-        if let split = splitViewController {
-            let controllers = split.viewControllers
-            detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
-        }
-        
-        updateLabels()
-    }
-    
-    func updateLabels() -> Void {
-        let totalNetCarbs = Helpers.roundValue(calculateTotalNetCarbs(), x: 1)
-        let totalCalories = Helpers.roundValue(calculateTotalCalories(), x: 1)
-        self.title = "\(totalNetCarbs)N/C      \(totalCalories)C"
-    }
-    
-    func calculateTotalNetCarbs() -> Decimal {
-        var total: Decimal = 0
-        if let foods = fetchedResultsController.fetchedObjects {
-            for food in foods {
-                total += getNetCarbsForFood(food: food)
-            }
-        }
-        return total
-    }
-    
-    func calculateTotalCalories() -> Decimal {
-        var total: Decimal = 0
-        if let foods = fetchedResultsController.fetchedObjects {
-            for food in foods {
-                total += getCaloriesForFood(food: food)
-            }
-        }
-        return total
-    }
-    
-    func getCaloriesForFood(food: Food) -> Decimal {
-        let value = Helpers.intToDecimal(int: food.amount) as Decimal / 100 * (food.caloriesPer100Grams as Decimal)
-        return value
-    }
-    
-    func getNetCarbsForFood(food: Food) -> Decimal {
-        let value = Helpers.intToDecimal(int: food.amount) as Decimal / 100 * (food.netCarbsPer100Grams as Decimal)
-        return value
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
-        super.viewWillAppear(animated)
-        reloadData()
-    }
-
-    @objc
-    func insertNewObject(_ sender: Any) {
-        let context = self.fetchedResultsController.managedObjectContext
-//        let newEvent = Event(context: context)
-        let newFood = Food(context: context)
-        
-        // If appropriate, configure the new managed object.
-//        newEvent.timestamp = Date()
-        newFood.name = ""
-        newFood.amount = 0
-
-        saveContext(context: context)
-    }
-    
-    func saveContext(context: NSManagedObjectContext) -> Void {
-        do {
-            try context.save()
-        } catch {
-            // Replace this implementation with code to handle the error appropriately.
-            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            let nserror = error as NSError
-            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-        }
     }
 
     // MARK: - Segues
@@ -264,6 +185,89 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     func reloadData() {
         self.tableView.reloadData()
         updateLabels()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        navigationItem.leftBarButtonItem = editButtonItem
+        
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
+        navigationItem.rightBarButtonItem = addButton
+        if let split = splitViewController {
+            let controllers = split.viewControllers
+            detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
+        }
+        
+        updateLabels()
+    }
+    
+    func calculateTotalNetCarbs() -> Decimal {
+        var total: Decimal = 0
+        if let foods = fetchedResultsController.fetchedObjects {
+            for food in foods {
+                total += getNetCarbsForFood(food: food)
+            }
+        }
+        return total
+    }
+    
+    func calculateTotalCalories() -> Decimal {
+        var total: Decimal = 0
+        if let foods = fetchedResultsController.fetchedObjects {
+            for food in foods {
+                total += getCaloriesForFood(food: food)
+            }
+        }
+        return total
+    }
+    
+    func getCaloriesForFood(food: Food) -> Decimal {
+        let value = Helpers.intToDecimal(int: food.amount) as Decimal / 100 * (food.caloriesPer100Grams as Decimal)
+        return value
+    }
+    
+    func getNetCarbsForFood(food: Food) -> Decimal {
+        let value = Helpers.intToDecimal(int: food.amount) as Decimal / 100 * (food.netCarbsPer100Grams as Decimal)
+        return value
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
+        super.viewWillAppear(animated)
+        reloadData()
+    }
+    
+    @objc
+    func insertNewObject(_ sender: Any) {
+        let context = self.fetchedResultsController.managedObjectContext
+        //        let newEvent = Event(context: context)
+        let newFood = Food(context: context)
+        
+        // If appropriate, configure the new managed object.
+        //        newEvent.timestamp = Date()
+        newFood.name = ""
+        newFood.amount = 0
+        
+        saveContext(context: context)
+    }
+    
+    func saveContext(context: NSManagedObjectContext) -> Void {
+        do {
+            try context.save()
+        } catch {
+            // Replace this implementation with code to handle the error appropriately.
+            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        }
+    }
+    
+    // MARK: - Update methods
+    func updateLabels() -> Void {
+        let totalNetCarbs = Helpers.roundValue(calculateTotalNetCarbs(), x: 1)
+        let totalCalories = Helpers.roundValue(calculateTotalCalories(), x: 1)
+        self.title = "\(totalNetCarbs)N/C      \(totalCalories)C"
     }
 }
 

@@ -49,7 +49,7 @@ class DetailViewController: UITableViewController {
     
     @IBAction func reset(_ sender: Any) {
         detailItem?.amount = 0
-        guard let food = detailItem else {return}
+//        guard let food = detailItem else {return}
         updateLabels()
 //        updateAmountInMasterView(food)
     }
@@ -63,6 +63,18 @@ class DetailViewController: UITableViewController {
         AudioServicesPlaySystemSound(1103)
     }
     
+    func setupKeyboardHiding() -> Void {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide),
+                                               name: UIResponder.keyboardWillHideNotification, object: nil)
+        //For hiding keyboard when user taps outside
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        
+        tap.cancelsTouchesInView = false
+        
+        view.addGestureRecognizer(tap)
+    }
+
+    
 //    fileprivate func updateAmountInMasterView(_ food: Food) {
 //        if let newAmount = detailItem?.amount {
 //            delegate?.didUpdateFood(food, newAmount)
@@ -75,7 +87,7 @@ class DetailViewController: UITableViewController {
             if let value = additionTextField.text {
                 if let valueAsInt = Int64(value) {
                     detailItem?.amount += valueAsInt
-                    guard let food = detailItem else {return}
+//                    guard let food = detailItem else {return}
 //                    updateAmountInMasterView(food)
                     additionTextField.text = ""
                 }
@@ -85,7 +97,7 @@ class DetailViewController: UITableViewController {
             if let value = subtractionTextField.text {
                 if let valueAsInt = Int64(value) {
                     detailItem?.amount -= valueAsInt
-                    guard let food = detailItem else {return}
+//                    guard let food = detailItem else {return}
 //                    updateAmountInMasterView(food)
                     subtractionTextField.text = ""
                 }
@@ -109,18 +121,7 @@ class DetailViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         configureView()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(DetailViewController.keyboardWillHide),
-                                               name: UIResponder.keyboardWillHideNotification, object: nil)
-        
-        
-        
-        //For hiding keyboard when user taps outside
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        
-        tap.cancelsTouchesInView = false
-        
-        view.addGestureRecognizer(tap)
+        setupKeyboardHiding()
     }
     
     // MARK: - Update methods

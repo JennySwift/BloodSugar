@@ -42,18 +42,7 @@ class FoodInfoViewController: UITableViewController {
         
         
         configureView()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(FoodInfoViewController.keyboardWillHide),
-                                               name: UIResponder.keyboardWillHideNotification, object: nil)
-        
-        
-        
-        //For hiding keyboard when user taps outside
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        
-        tap.cancelsTouchesInView = false
-        
-        view.addGestureRecognizer(tap)
+        setupKeyboardHiding()
     }
 
     // MARK: - Table view data source
@@ -135,6 +124,18 @@ class FoodInfoViewController: UITableViewController {
                 netCarbsPer100GramsTextField.text = Helpers.decimalToString(decimal: detail.netCarbsPer100Grams)
             }
         }
+    }
+    
+    // MARK: - Methods
+    func setupKeyboardHiding() -> Void {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide),
+                                               name: UIResponder.keyboardWillHideNotification, object: nil)
+        //For hiding keyboard when user taps outside
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        
+        tap.cancelsTouchesInView = false
+        
+        view.addGestureRecognizer(tap)
     }
     
     // MARK: - Update methods
