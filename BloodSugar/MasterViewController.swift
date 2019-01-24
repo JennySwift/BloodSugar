@@ -40,8 +40,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
     
     func updateLabels() -> Void {
-        let totalNetCarbs = roundValue(calculateTotalNetCarbs(), x: 1)
-        let totalCalories = roundValue(calculateTotalCalories(), x: 1)
+        let totalNetCarbs = Helpers.roundValue(calculateTotalNetCarbs(), x: 1)
+        let totalCalories = Helpers.roundValue(calculateTotalCalories(), x: 1)
         self.title = "\(totalNetCarbs)N/C      \(totalCalories)C"
     }
     
@@ -66,12 +66,12 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
     
     func getCaloriesForFood(food: Food) -> Decimal {
-        let value = intToDecimal(int: food.amount) as Decimal / 100 * (food.caloriesPer100Grams as Decimal)
+        let value = Helpers.intToDecimal(int: food.amount) as Decimal / 100 * (food.caloriesPer100Grams as Decimal)
         return value
     }
     
     func getNetCarbsForFood(food: Food) -> Decimal {
-        let value = intToDecimal(int: food.amount) as Decimal / 100 * (food.netCarbsPer100Grams as Decimal)
+        let value = Helpers.intToDecimal(int: food.amount) as Decimal / 100 * (food.netCarbsPer100Grams as Decimal)
         return value
     }
 
@@ -264,32 +264,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     func reloadData() {
         self.tableView.reloadData()
         updateLabels()
-    }
-    
-    // MARK: - Helpers
-    func intToDecimal(int: Int64) -> NSDecimalNumber {
-        return stringToDecimal(string: String(int))
-    }
-    
-    func stringToDecimal(string: String) -> NSDecimalNumber {
-        return NSDecimalNumber(string: string)
-    }
-    
-    func decimalToDouble(decimal: Decimal) -> Double {
-        return Double(decimal as NSNumber)
-    }
-    
-    // Given the number 843.19...
-    // If x = 1, result will be 843
-    // If x = 10, result will be 843.2
-    // If x = 100, result will be 843.19
-    func roundValue(_ value: Decimal, x: Decimal) -> Decimal {
-        var newValue = value
-        newValue *= x
-        newValue = Decimal(round(decimalToDouble(decimal: newValue)))
-        newValue /= x
-        
-        return newValue
     }
 }
 
