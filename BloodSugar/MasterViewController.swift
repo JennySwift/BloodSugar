@@ -40,8 +40,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
     
     func updateLabels() -> Void {
-        let totalNetCarbs = calculateTotalNetCarbs()
-        let totalCalories = calculateTotalCalories()
+        let totalNetCarbs = roundValue(calculateTotalNetCarbs(), x: 1)
+        let totalCalories = roundValue(calculateTotalCalories(), x: 1)
         self.title = "\(totalNetCarbs)N/C      \(totalCalories)C"
     }
     
@@ -273,6 +273,23 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     
     func stringToDecimal(string: String) -> NSDecimalNumber {
         return NSDecimalNumber(string: string)
+    }
+    
+    func decimalToDouble(decimal: Decimal) -> Double {
+        return Double(decimal as NSNumber)
+    }
+    
+    // Given the number 843.19...
+    // If x = 1, result will be 843
+    // If x = 10, result will be 843.2
+    // If x = 100, result will be 843.19
+    func roundValue(_ value: Decimal, x: Decimal) -> Decimal {
+        var newValue = value
+        newValue *= x
+        newValue = Decimal(round(decimalToDouble(decimal: newValue)))
+        newValue /= x
+        
+        return newValue
     }
 }
 
