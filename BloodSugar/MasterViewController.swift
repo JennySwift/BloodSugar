@@ -263,6 +263,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     // MARK: - Methods
     func reloadData() {
         self.tableView.reloadData()
+        updateLabels()
     }
     
     // MARK: - Helpers
