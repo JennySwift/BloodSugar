@@ -14,30 +14,15 @@ protocol DetailViewControllerDelegate: class {
 }
 
 class DetailViewController: UITableViewController {
+    // MARK: - Outlets
     @IBOutlet weak var navItem: UINavigationItem!
-    
     @IBOutlet weak var caloriesLabel: UILabel!
     @IBOutlet weak var netCarbsLabel: UILabel!
     @IBOutlet weak var gramsLabel: UILabel!
-    
     @IBOutlet weak var additionTextField: UITextField!
-    
     @IBOutlet weak var subtractionTextField: UITextField!
-
-    @IBAction func copyToClipboard(_ sender: Any) {
-        if let detail = detailItem {
-            UIPasteboard.general.string = String(detail.amount)
-            playSound()
-        }
-    }
     
-
-    @IBAction func reset(_ sender: Any) {
-        detailItem?.amount = 0
-        guard let food = detailItem else {return}
-        updateLabels()
-        updateAmountInMasterView(food)
-    }
+    // MARK: - Variables
     var detailItem: Food? {
         didSet {
             // Update the view.
@@ -46,7 +31,6 @@ class DetailViewController: UITableViewController {
     }
     
     weak var delegate: DetailViewControllerDelegate?
-    
     var action = Action.addition
     var activeTextField: UITextField?
     
@@ -54,34 +38,45 @@ class DetailViewController: UITableViewController {
         case addition
         case subtraction
     }
+
+    // MARK: - IBActions
+    @IBAction func copyToClipboard(_ sender: Any) {
+        if let detail = detailItem {
+            UIPasteboard.general.string = String(detail.amount)
+            playSound()
+        }
+    }
+    
+    @IBAction func reset(_ sender: Any) {
+        detailItem?.amount = 0
+        guard let food = detailItem else {return}
+        updateLabels()
+//        updateAmountInMasterView(food)
+    }
+    
+    // MARK: - Methods
+//    deinit {
+//        NotificationCenter.default.removeObserver(self)
+//    }
     
     func playSound() -> Void {
         AudioServicesPlaySystemSound(1103)
     }
     
-    @IBAction func subtractionInputFocused(_ sender: Any) {
-        print("subtraction focused")
-    }
-    
-    @IBAction func additionInputFocused(_ sender: Any) {
-        print("addition focused")
-    }
-    
-    fileprivate func updateAmountInMasterView(_ food: Food) {
-        if let newAmount = detailItem?.amount {
-            delegate?.didUpdateFood(food, newAmount)
-        }
-    }
+//    fileprivate func updateAmountInMasterView(_ food: Food) {
+//        if let newAmount = detailItem?.amount {
+//            delegate?.didUpdateFood(food, newAmount)
+//        }
+//    }
     
     func addFromInputField() -> Void {
         switch action {
         case Action.addition:
             if let value = additionTextField.text {
                 if let valueAsInt = Int64(value) {
-                    print(valueAsInt)
                     detailItem?.amount += valueAsInt
                     guard let food = detailItem else {return}
-                    updateAmountInMasterView(food)
+//                    updateAmountInMasterView(food)
                     additionTextField.text = ""
                 }
                 
@@ -91,7 +86,7 @@ class DetailViewController: UITableViewController {
                 if let valueAsInt = Int64(value) {
                     detailItem?.amount -= valueAsInt
                     guard let food = detailItem else {return}
-                    updateAmountInMasterView(food)
+//                    updateAmountInMasterView(food)
                     subtractionTextField.text = ""
                 }
                 
@@ -109,6 +104,7 @@ class DetailViewController: UITableViewController {
         }
     }
     
+    // MARK: - View did load
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -125,24 +121,6 @@ class DetailViewController: UITableViewController {
         tap.cancelsTouchesInView = false
         
         view.addGestureRecognizer(tap)
-    }
-    
-    @objc func dismissKeyboard() {
-        activeTextField?.resignFirstResponder()
-    }
-    
-    @objc func keyboardWillHide(_ notification: NSNotification) {
-        switch activeTextField {
-        case additionTextField, subtractionTextField: addFromInputField()
-        case .none:
-            return
-        case .some(_):
-            return
-        }
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: - Update methods
@@ -171,6 +149,21 @@ class DetailViewController: UITableViewController {
             label.text = Helpers.decimalToString(decimal: NSDecimalNumber(decimal: value))
         }
     }
+    
+    // MARK: - @objc
+    @objc func dismissKeyboard() {
+        activeTextField?.resignFirstResponder()
+    }
+    
+    @objc func keyboardWillHide(_ notification: NSNotification) {
+        switch activeTextField {
+        case additionTextField, subtractionTextField: addFromInputField()
+        case .none:
+            return
+        case .some(_):
+            return
+        }
+    }
 }
 
 extension DetailViewController: UITextFieldDelegate {
@@ -180,7 +173,6 @@ extension DetailViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        print("should begin editing")
         activeTextField = textField
         if textField == additionTextField {
             action = Action.addition

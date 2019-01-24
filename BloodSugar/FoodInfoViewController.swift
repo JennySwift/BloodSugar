@@ -13,11 +13,12 @@ protocol FoodInfoViewControllerDelegate: class {
 }
 
 class FoodInfoViewController: UITableViewController {
-    
+    // MARK: - Outlets
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var netCarbsPer100GramsTextField: UITextField!
     @IBOutlet weak var caloriesPer100GramsTextField: UITextField!
     
+    // MARK: - Variables
     var activeTextField: UITextField?
     
     var detailItem: Food? {
@@ -29,6 +30,7 @@ class FoodInfoViewController: UITableViewController {
     
     weak var delegate: FoodInfoViewControllerDelegate?
     
+    //MARK: - View did load
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -130,25 +132,8 @@ class FoodInfoViewController: UITableViewController {
                 caloriesPer100GramsTextField.text = Helpers.decimalToString(decimal: detail.caloriesPer100Grams)
             }
             if let netCarbsPer100GramsTextField = netCarbsPer100GramsTextField {
-                print(detail.netCarbsPer100Grams)
                 netCarbsPer100GramsTextField.text = Helpers.decimalToString(decimal: detail.netCarbsPer100Grams)
             }
-        }
-    }
-    
-    @objc func dismissKeyboard() {
-        activeTextField?.resignFirstResponder()
-    }
-    
-    @objc func keyboardWillHide(_ notification: NSNotification) {
-        switch activeTextField {
-        case nameTextField: updateName()
-        case caloriesPer100GramsTextField: updateCaloriesPer100Grams()
-        case netCarbsPer100GramsTextField: updateNetCarbsPer100Grams()
-        case .none:
-            return
-        case .some(_):
-            return
         }
     }
     
@@ -170,6 +155,23 @@ class FoodInfoViewController: UITableViewController {
             detailItem?.name = value
         }
     }
+    
+    // MARK: - @objc
+    @objc func dismissKeyboard() {
+        activeTextField?.resignFirstResponder()
+    }
+    
+    @objc func keyboardWillHide(_ notification: NSNotification) {
+        switch activeTextField {
+        case nameTextField: updateName()
+        case caloriesPer100GramsTextField: updateCaloriesPer100Grams()
+        case netCarbsPer100GramsTextField: updateNetCarbsPer100Grams()
+        case .none:
+            return
+        case .some(_):
+            return
+        }
+    }
 }
 
 extension FoodInfoViewController: UITextFieldDelegate {
@@ -179,9 +181,7 @@ extension FoodInfoViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        print("should begin editing")
         activeTextField = textField
-        
         return true
     }
 }
