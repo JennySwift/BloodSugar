@@ -122,18 +122,16 @@ class FoodInfoViewController: UITableViewController {
     */
     
     func configureView() -> Void {
-        print("configure view")
         if let detail = detailItem {
-            print("in here")
             if let nameTextField = nameTextField {
                 nameTextField.text = detail.name
             }
             if let caloriesPer100GramsTextField = caloriesPer100GramsTextField {
-                caloriesPer100GramsTextField.text = decimalToString(decimal: detail.caloriesPer100Grams)
+                caloriesPer100GramsTextField.text = Helpers.decimalToString(decimal: detail.caloriesPer100Grams)
             }
             if let netCarbsPer100GramsTextField = netCarbsPer100GramsTextField {
                 print(detail.netCarbsPer100Grams)
-                netCarbsPer100GramsTextField.text = decimalToString(decimal: detail.netCarbsPer100Grams)
+                netCarbsPer100GramsTextField.text = Helpers.decimalToString(decimal: detail.netCarbsPer100Grams)
             }
         }
     }
@@ -157,13 +155,13 @@ class FoodInfoViewController: UITableViewController {
     // MARK: - Update methods
     func updateCaloriesPer100Grams() -> Void {
         if let value = caloriesPer100GramsTextField.text {
-            detailItem?.caloriesPer100Grams = stringToDecimal(string: value)
+            detailItem?.caloriesPer100Grams = Helpers.stringToDecimal(string: value)
         }
     }
     
     func updateNetCarbsPer100Grams() -> Void {
         if let value = netCarbsPer100GramsTextField.text {
-            detailItem?.netCarbsPer100Grams = stringToDecimal(string: value)
+            detailItem?.netCarbsPer100Grams = Helpers.stringToDecimal(string: value)
         }
     }
     
@@ -172,27 +170,6 @@ class FoodInfoViewController: UITableViewController {
             detailItem?.name = value
         }
     }
-    
-    // MARK: - Helpers
-    func intToDecimal(int: Int64) -> NSDecimalNumber {
-        return stringToDecimal(string: String(int))
-    }
-    
-    func int64ToInt32(int64: Int64) -> Int32 {
-        return Int32(exactly: int64) ?? 0
-    }
-    
-    func stringToDecimal(string: String) -> NSDecimalNumber {
-        return NSDecimalNumber(string: string)
-    }
-    
-    func decimalToString(decimal: NSDecimalNumber) -> String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        let value = formatter.string(from: decimal) ?? ""
-        return value
-    }
-
 }
 
 extension FoodInfoViewController: UITextFieldDelegate {

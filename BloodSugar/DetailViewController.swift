@@ -160,39 +160,17 @@ class DetailViewController: UITableViewController {
     
     func updateTotalCaloriesText() {
         if let detail = detailItem, let label = caloriesLabel {
-            let value = intToDecimal(int: detail.amount) as Decimal / 100 * (detail.caloriesPer100Grams as Decimal)
-            label.text = decimalToString(decimal: NSDecimalNumber(decimal: value))
+            let value = Helpers.intToDecimal(int: detail.amount) as Decimal / 100 * (detail.caloriesPer100Grams as Decimal)
+            label.text = Helpers.decimalToString(decimal: NSDecimalNumber(decimal: value))
         }
     }
     
     func updateTotalNetCarbsText() {
         if let detail = detailItem, let label = netCarbsLabel {
-            let value = intToDecimal(int: detail.amount) as Decimal / 100 * (detail.netCarbsPer100Grams as Decimal)
-            label.text = decimalToString(decimal: NSDecimalNumber(decimal: value))
+            let value = Helpers.intToDecimal(int: detail.amount) as Decimal / 100 * (detail.netCarbsPer100Grams as Decimal)
+            label.text = Helpers.decimalToString(decimal: NSDecimalNumber(decimal: value))
         }
     }
-    
-    // MARK: - Helpers
-    func intToDecimal(int: Int64) -> NSDecimalNumber {
-        return stringToDecimal(string: String(int))
-    }
-    
-    func int64ToInt32(int64: Int64) -> Int32 {
-        return Int32(exactly: int64) ?? 0
-    }
-    
-    func stringToDecimal(string: String) -> NSDecimalNumber {
-        return NSDecimalNumber(string: string)
-    }
-    
-    func decimalToString(decimal: NSDecimalNumber) -> String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        let value = formatter.string(from: decimal) ?? ""
-        return value
-    }
-
-
 }
 
 extension DetailViewController: UITextFieldDelegate {

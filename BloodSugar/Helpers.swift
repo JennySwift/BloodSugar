@@ -33,6 +33,17 @@ class Helpers {
     static func intToDecimal(int: Int64) -> NSDecimalNumber {
         return Helpers.stringToDecimal(string: String(int))
     }
+    
+    static func int64ToInt32(int64: Int64) -> Int32 {
+        return Int32(exactly: int64) ?? 0
+    }
+    
+    static func decimalToString(decimal: NSDecimalNumber) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        let value = formatter.string(from: decimal) ?? ""
+        return value
+    }
 }
 
 
