@@ -18,13 +18,20 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     var selectedFood: Food?
     
     // MARK: - IBActions
-    @IBAction func reset(_ sender: Any) {
-        if let foods = fetchedResultsController.fetchedObjects {
-            for food in foods {
-                food.amount = 0
-            }
-        }
-        updateLabels()
+    @IBAction func showActionMenu(_ sender: Any) {
+        let alert = UIAlertController(title: "Choose an Action", message: nil, preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Copy", style: .default, handler: { (UIAlertAction) in
+            print("copying!")
+        }))
+        alert.addAction(UIAlertAction(title: "Reset", style: .default, handler: { (UIAlertAction) in
+            self.reset()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true, completion:  {
+            
+        })
     }
 
     // MARK: - Segues
@@ -188,19 +195,34 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         updateLabels()
     }
     
+    func reset() -> Void {
+        if let foods = fetchedResultsController.fetchedObjects {
+            for food in foods {
+                food.amount = 0
+            }
+        }
+        updateLabels()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        navigationItem.leftBarButtonItem = editButtonItem
+        setupNavigationBar()
         
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
-        navigationItem.rightBarButtonItem = addButton
         if let split = splitViewController {
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
         
         updateLabels()
+    }
+    
+    func setupNavigationBar() -> Void {
+//        navigationItem.leftBarButtonItem = editButtonItem
+        
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
+        
+        navigationItem.leftBarButtonItem = addButton
     }
     
     func calculateTotalNetCarbs() -> Decimal {
