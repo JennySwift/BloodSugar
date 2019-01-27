@@ -118,10 +118,10 @@ class FoodInfoViewController: UITableViewController {
                 nameTextField.text = detail.name
             }
             if let caloriesPer100GramsTextField = caloriesPer100GramsTextField {
-                caloriesPer100GramsTextField.text = Helpers.decimalToString(decimal: detail.caloriesPer100Grams)
+                caloriesPer100GramsTextField.text = Helpers.decimalNumberToString(decimal: detail.caloriesPer100Grams)
             }
             if let netCarbsPer100GramsTextField = netCarbsPer100GramsTextField {
-                netCarbsPer100GramsTextField.text = Helpers.decimalToString(decimal: detail.netCarbsPer100Grams)
+                netCarbsPer100GramsTextField.text = Helpers.decimalNumberToString(decimal: detail.netCarbsPer100Grams)
             }
         }
     }

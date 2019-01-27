@@ -8,6 +8,7 @@
 
 import Foundation
 import AVFoundation
+import UIKit
 
 class Helpers {
     static func decimalToDouble(decimal: Decimal) -> Double {
@@ -39,7 +40,14 @@ class Helpers {
         return Int32(exactly: int64) ?? 0
     }
     
-    static func decimalToString(decimal: NSDecimalNumber) -> String {
+    static func decimalToString(decimal: Decimal) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        let value = formatter.string(from: NSDecimalNumber(decimal: decimal)) ?? ""
+        return value
+    }
+    
+    static func decimalNumberToString(decimal: NSDecimalNumber) -> String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         let value = formatter.string(from: decimal) ?? ""
@@ -48,6 +56,10 @@ class Helpers {
     
     static func playSound() -> Void {
         AudioServicesPlaySystemSound(1103)
+    }
+    
+    static func copyToClipboard(string: String) -> Void {
+        UIPasteboard.general.string = string
     }
 }
 

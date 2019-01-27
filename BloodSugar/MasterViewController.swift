@@ -197,7 +197,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     
     func copyNetCarbsToClipboard() -> Void {
         let netCarbs = Helpers.roundValue(calculateTotalNetCarbs(), x: 1)
-        UIPasteboard.general.string = Helpers.decimalToString(decimal: NSDecimalNumber(decimal: netCarbs))
+        Helpers.copyToClipboard(string: Helpers.decimalToString(decimal: netCarbs))
         Helpers.playSound()
     }
     

@@ -42,7 +42,7 @@ class DetailViewController: UITableViewController {
     // MARK: - IBActions
     @IBAction func copyToClipboard(_ sender: Any) {
         if let detail = detailItem {
-            UIPasteboard.general.string = String(detail.amount)
+            Helpers.copyToClipboard(string: String(detail.amount))
             Helpers.playSound()
         }
     }
@@ -136,14 +136,14 @@ class DetailViewController: UITableViewController {
     func updateTotalCaloriesText() {
         if let detail = detailItem, let label = caloriesLabel {
             let value = Helpers.intToDecimal(int: detail.amount) as Decimal / 100 * (detail.caloriesPer100Grams as Decimal)
-            label.text = Helpers.decimalToString(decimal: NSDecimalNumber(decimal: value))
+            label.text = Helpers.decimalToString(decimal: value)
         }
     }
     
     func updateTotalNetCarbsText() {
         if let detail = detailItem, let label = netCarbsLabel {
             let value = Helpers.intToDecimal(int: detail.amount) as Decimal / 100 * (detail.netCarbsPer100Grams as Decimal)
-            label.text = Helpers.decimalToString(decimal: NSDecimalNumber(decimal: value))
+            label.text = Helpers.decimalToString(decimal: value)
         }
     }
     
