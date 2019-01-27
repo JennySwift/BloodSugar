@@ -162,6 +162,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
                 tableView.deleteRows(at: [indexPath!], with: .fade)
             case .update:
                 configureCell(tableView.cellForRow(at: indexPath!)!, withFood: anObject as! Food)
+                updateFood()
             case .move:
                 configureCell(tableView.cellForRow(at: indexPath!)!, withFood: anObject as! Food)
                 tableView.moveRow(at: indexPath!, to: newIndexPath!)
@@ -248,6 +249,12 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         //        newEvent.timestamp = Date()
         newFood.name = ""
         newFood.amount = 0
+        
+        saveContext(context: context)
+    }
+    
+    func updateFood() -> Void {
+        let context = fetchedResultsController.managedObjectContext
         
         saveContext(context: context)
     }
