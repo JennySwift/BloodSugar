@@ -43,7 +43,7 @@ class DetailViewController: UITableViewController {
     @IBAction func copyToClipboard(_ sender: Any) {
         if let detail = detailItem {
             UIPasteboard.general.string = String(detail.amount)
-            playSound()
+            Helpers.playSound()
         }
     }
     
@@ -58,10 +58,6 @@ class DetailViewController: UITableViewController {
 //    deinit {
 //        NotificationCenter.default.removeObserver(self)
 //    }
-    
-    func playSound() -> Void {
-        AudioServicesPlaySystemSound(1103)
-    }
     
     func setupKeyboardHiding() -> Void {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide),

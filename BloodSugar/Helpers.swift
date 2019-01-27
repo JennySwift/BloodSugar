@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AVFoundation
 
 class Helpers {
     static func decimalToDouble(decimal: Decimal) -> Double {
@@ -43,6 +44,10 @@ class Helpers {
         formatter.numberStyle = .decimal
         let value = formatter.string(from: decimal) ?? ""
         return value
+    }
+    
+    static func playSound() -> Void {
+        AudioServicesPlaySystemSound(1103)
     }
 }
 

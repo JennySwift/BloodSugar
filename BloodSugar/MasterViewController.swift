@@ -21,8 +21,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     @IBAction func showActionMenu(_ sender: Any) {
         let alert = UIAlertController(title: "Choose an Action", message: nil, preferredStyle: .actionSheet)
         
-        alert.addAction(UIAlertAction(title: "Copy", style: .default, handler: { (UIAlertAction) in
-            print("copying!")
+        alert.addAction(UIAlertAction(title: "Copy Net Carbs", style: .default, handler: { (UIAlertAction) in
+            self.copyNetCarbsToClipboard()
         }))
         alert.addAction(UIAlertAction(title: "Reset", style: .default, handler: { (UIAlertAction) in
             self.reset()
@@ -193,6 +193,12 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     func reloadData() {
         self.tableView.reloadData()
         updateLabels()
+    }
+    
+    func copyNetCarbsToClipboard() -> Void {
+        let netCarbs = Helpers.roundValue(calculateTotalNetCarbs(), x: 1)
+        UIPasteboard.general.string = Helpers.decimalToString(decimal: NSDecimalNumber(decimal: netCarbs))
+        Helpers.playSound()
     }
     
     func reset() -> Void {
