@@ -168,8 +168,17 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             case .delete:
                 tableView.deleteRows(at: [indexPath!], with: .fade)
             case .update:
-                configureCell(tableView.cellForRow(at: indexPath!)!, withFood: anObject as! Food)
-                updateFood()
+                if let food = anObject as? Food {
+                    if let indexPath = indexPath {
+                        if let cell = tableView.cellForRow(at: indexPath) {
+                            configureCell(cell, withFood: food)
+                            updateFood()
+                        }
+                        
+                    }
+                   
+                }
+            
             case .move:
                 configureCell(tableView.cellForRow(at: indexPath!)!, withFood: anObject as! Food)
                 tableView.moveRow(at: indexPath!, to: newIndexPath!)
