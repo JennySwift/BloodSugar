@@ -119,7 +119,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         let fetchRequest: NSFetchRequest<Food> = Food.fetchRequest()
         
         // Set the batch size to a suitable number.
-        fetchRequest.fetchBatchSize = 20
+        fetchRequest.fetchBatchSize = 50
         
         // Edit the sort key as appropriate.
 //        let sortDescriptor = NSSortDescriptor(key: "timestamp", ascending: false)
