@@ -247,6 +247,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
                 total += getNetCarbsForFood(food: food)
             }
         }
+        Store.setTotalNetCarbs(total: total)
         return total
     }
     

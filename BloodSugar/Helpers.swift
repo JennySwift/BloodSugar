@@ -11,6 +11,7 @@ import AVFoundation
 import UIKit
 
 class Helpers {
+    
     static func decimalToDouble(decimal: Decimal) -> Double {
         return Double(decimal as NSNumber)
     }

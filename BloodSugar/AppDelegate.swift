@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         
 //        let splitViewController = self.window!.rootViewController as! UISplitViewController
         let tabBarViewController = self.window!.rootViewController as! UITabBarController
+        
         var splitViewController:UISplitViewController? = nil
         for viewController in tabBarViewController.viewControllers! {
             if viewController.title == "Master" {
