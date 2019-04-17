@@ -10,9 +10,10 @@ import Foundation
 
 class Store {
     static let shared = Store()
-    static var totalNetCarbs: Decimal = 0
+    static var totalNetCarbs: Double = 0.0
     
     static func setTotalNetCarbs(total: Decimal) {
-        totalNetCarbs = total
+        totalNetCarbs = Helpers.decimalToDouble(decimal: total)
+//        totalNetCarbs = total
     }
 }

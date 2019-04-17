@@ -10,7 +10,25 @@ import UIKit
 
 class DoseViewController: UITableViewController {
 
-    @IBOutlet weak var totalNetCarbs: UILabel!
+    @IBOutlet weak var totalNetCarbsLabel: UILabel!
+    @IBOutlet weak var bloodSugarNowLabel: UILabel!
+    
+    @IBOutlet weak var minutesWalkingLabel: UILabel!
+    @IBOutlet weak var carbInsulinRatioLabel: UILabel!
+    @IBOutlet weak var bloodSugarGoalLabel: UILabel!
+    
+    @IBOutlet weak var totalInsulinLabel: UILabel!
+    
+    
+    var bloodSugarNow = 7.4
+    var bloodSugarGoal = 3.8
+    var minutesWalking = 0.0
+    var carbInsulinRatio = 16.4
+    var totalInsulin = 11.0
+    var correctionFactor = 3.0
+    var totalNetCarbs: Double = 0.0
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,10 +44,34 @@ class DoseViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         updateValues()
+        calculateDose()
     }
     
     func updateValues() {
-        totalNetCarbs.text = Helpers.decimalToString(decimal: Store.totalNetCarbs)
+        totalNetCarbs = Store.totalNetCarbs
+        
+//        totalNetCarbsLabel.text = Helpers.decimalToString(decimal: totalNetCarbs)
+        totalNetCarbsLabel.text = String(totalNetCarbs)
+        
+        
+        bloodSugarNowLabel.text = String(bloodSugarNow)
+        bloodSugarGoalLabel.text = String(bloodSugarGoal)
+        minutesWalkingLabel.text = String(minutesWalking)
+        carbInsulinRatioLabel.text = String(carbInsulinRatio)
+        totalInsulinLabel.text = String(totalInsulin)
+    }
+    
+    func calculateDose() {
+        var dose = bloodSugarNow - bloodSugarGoal
+        dose /= correctionFactor
+        
+        dose += (totalNetCarbs / carbInsulinRatio)
+        
+        dose -= (minutesWalking / 60.0)
+        
+        dose -= totalInsulin
+        
+        self.title = String(dose)
     }
 
     // MARK: - Table view data source
@@ -41,7 +83,7 @@ class DoseViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        return 6
     }
 
     /*
