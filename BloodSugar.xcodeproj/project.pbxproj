@@ -10,6 +10,7 @@
 		BD8B13282266D1A600E90FDB /* DoseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8B13272266D1A600E90FDB /* DoseViewController.swift */; };
 		BD8B132A2266DC1200E90FDB /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8B13292266DC1200E90FDB /* Store.swift */; };
 		BD8B132E2267245E00E90FDB /* DoseSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8B132D2267245E00E90FDB /* DoseSplitViewController.swift */; };
+		BD8B1330226729B300E90FDB /* DoseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8B132F226729B300E90FDB /* DoseDetailViewController.swift */; };
 		BDCCF86D21F5DE1E00FBCC9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCCF86C21F5DE1E00FBCC9C /* AppDelegate.swift */; };
 		BDCCF87021F5DE1E00FBCC9C /* BloodSugar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BDCCF86E21F5DE1E00FBCC9C /* BloodSugar.xcdatamodeld */; };
 		BDCCF87221F5DE1E00FBCC9C /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCCF87121F5DE1E00FBCC9C /* MasterViewController.swift */; };
@@ -46,6 +47,7 @@
 		BD8B13272266D1A600E90FDB /* DoseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoseViewController.swift; sourceTree = "<group>"; };
 		BD8B13292266DC1200E90FDB /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		BD8B132D2267245E00E90FDB /* DoseSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoseSplitViewController.swift; sourceTree = "<group>"; };
+		BD8B132F226729B300E90FDB /* DoseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoseDetailViewController.swift; sourceTree = "<group>"; };
 		BDCCF86921F5DE1E00FBCC9C /* BloodSugar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BloodSugar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDCCF86C21F5DE1E00FBCC9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDCCF86F21F5DE1E00FBCC9C /* BloodSugar.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BloodSugar.xcdatamodel; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				BD8B13272266D1A600E90FDB /* DoseViewController.swift */,
 				BD8B13292266DC1200E90FDB /* Store.swift */,
 				BD8B132D2267245E00E90FDB /* DoseSplitViewController.swift */,
+				BD8B132F226729B300E90FDB /* DoseDetailViewController.swift */,
 			);
 			path = BloodSugar;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 			files = (
 				BDCCF8A121F5DF0C00FBCC9C /* Food+CoreDataClass.swift in Sources */,
 				BDCCF86D21F5DE1E00FBCC9C /* AppDelegate.swift in Sources */,
+				BD8B1330226729B300E90FDB /* DoseDetailViewController.swift in Sources */,
 				BDCCF8A521F8696800FBCC9C /* FoodInfoViewController.swift in Sources */,
 				BDCCF8A721F9770500FBCC9C /* Helpers.swift in Sources */,
 				BDCCF87021F5DE1E00FBCC9C /* BloodSugar.xcdatamodeld in Sources */,

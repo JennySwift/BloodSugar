@@ -144,8 +144,44 @@ class DoseViewController: UITableViewController {
     }
     */
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDoseDetail" {
+            let controller = (segue.destination as! UINavigationController).topViewController as! DoseDetailViewController
+            
+            if let sender = sender {
+                var indexPath = sender as! IndexPath
+                if indexPath.row == 0 {
+                    controller.detailItem = "BS Now"
+                }
+                if indexPath.row == 1 {
+                    controller.detailItem = "BS Goal"
+                }
+                if indexPath.row == 2 {
+                    controller.detailItem = "Net Carbs"
+                }
+                if indexPath.row == 3 {
+                    controller.detailItem = "Insulin"
+                }
+                if indexPath.row == 4 {
+                    controller.detailItem = "C/I"
+                }
+                if indexPath.row == 5 {
+                    controller.detailItem = "Minutes Walking"
+                }
+            }
+            
+            
+//                controller.delegate = self
+//                controller.detailItem = object
+//            controller.title = "insulin"
+//                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+//                controller.navigationItem.leftItemsSupplementBackButton = true
+//            }
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "showDoseDetail", sender: self)
+        self.performSegue(withIdentifier: "showDoseDetail", sender: indexPath)
     }
 
 }
