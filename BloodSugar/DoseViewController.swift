@@ -51,7 +51,7 @@ class DoseViewController: UITableViewController {
         totalNetCarbs = Store.totalNetCarbs
         
 //        totalNetCarbsLabel.text = Helpers.decimalToString(decimal: totalNetCarbs)
-        totalNetCarbsLabel.text = String(totalNetCarbs)
+        totalNetCarbsLabel.text = String(round(totalNetCarbs))
         
         
         bloodSugarNowLabel.text = String(bloodSugarNow)
@@ -71,7 +71,7 @@ class DoseViewController: UITableViewController {
         
         dose -= totalInsulin
         
-        self.title = String(dose)
+        self.title = String(Helpers.roundDouble(dose, x: 10))
     }
 
     // MARK: - Table view data source

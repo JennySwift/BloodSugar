@@ -29,6 +29,19 @@ class Helpers {
         return newValue
     }
     
+    // Given the number 843.19...
+    // If x = 1, result will be 843
+    // If x = 10, result will be 843.2
+    // If x = 100, result will be 843.19
+    static func roundDouble(_ value: Double, x: Double) -> Double {
+        var newValue = value
+        newValue *= x
+        newValue = round(newValue)
+        newValue /= x
+        
+        return newValue
+    }
+    
     static func stringToDecimal(string: String) -> NSDecimalNumber {
         return NSDecimalNumber(string: string)
     }
