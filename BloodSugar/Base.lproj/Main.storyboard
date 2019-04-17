@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -355,11 +356,12 @@
                         <outlet property="minutesWalkingLabel" destination="I0C-b7-fQl" id="J0X-5h-PiM"/>
                         <outlet property="totalInsulinLabel" destination="kjQ-Ny-s5g" id="8jd-CV-qXn"/>
                         <outlet property="totalNetCarbsLabel" destination="OGz-vG-5Bb" id="Avg-cd-PSr"/>
+                        <segue destination="V7G-PJ-v0v" kind="show" identifier="showDoseDetail" id="gtS-8h-s16"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mGj-MN-1NA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="913" y="-2210"/>
+            <point key="canvasLocation" x="870" y="-2211"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZJu-ON-XXL">
@@ -377,18 +379,35 @@
             </objects>
             <point key="canvasLocation" x="-39" y="-2210"/>
         </scene>
-        <!--DoseMaster-->
+        <!--DoseSplitViewController-->
         <scene sceneID="HL0-l0-LNp">
             <objects>
-                <splitViewController title="DoseMaster" id="FqB-Rf-KvI" sceneMemberID="viewController">
+                <splitViewController title="DoseSplitViewController" id="FqB-Rf-KvI" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Dose" id="3aV-ch-PFE"/>
                     <connections>
                         <segue destination="jP4-P0-Tyx" kind="relationship" relationship="masterViewController" id="ZeE-rb-ZiF"/>
+                        <segue destination="V7G-PJ-v0v" kind="relationship" relationship="detailViewController" id="gAi-h3-kG8"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MKm-is-SvZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1002" y="-1868"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="fJU-2q-UHa">
+            <objects>
+                <viewController id="5hd-q9-OEk" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zTF-fZ-Jtb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="bcp-dX-7zb"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="53x-xa-2dk"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SVU-ai-FDp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="904.79999999999995" y="-1471.2143928035982"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Z6s-Q5-hza">
@@ -633,8 +652,27 @@
             </objects>
             <point key="canvasLocation" x="302" y="83"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wIH-a7-Abr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="V7G-PJ-v0v" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ogA-Wi-slo">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5hd-q9-OEk" kind="relationship" relationship="rootViewController" id="qXs-0b-UTI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zJL-K9-sqf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-34.399999999999999" y="-1471.2143928035982"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="gAi-h3-kG8"/>
         <segue reference="Wos-Zl-wq2"/>
     </inferredMetricsTieBreakers>
 </document>

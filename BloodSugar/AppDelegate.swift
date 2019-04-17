@@ -25,18 +25,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         for viewController in tabBarViewController.viewControllers! {
             if viewController.title == "Master" {
                 splitViewController = viewController as? UISplitViewController
+                
+                if let splitViewController = splitViewController {
+                    useSplitViewController(splitViewController: splitViewController, name: "Master")
+                }
+            }
+            if viewController.title == "DoseSplitViewController" {
+//                splitViewController = viewController as? UISplitViewController
+//                if let splitViewController = splitViewController {
+//                    useSplitViewController(splitViewController: splitViewController, name: "DoseSplitViewController")
+//                }
             }
         }
+        
+        
+        
+        return true
+    }
+    
+    func useSplitViewController(splitViewController: UISplitViewController?, name: String) {
+//        splitViewController?.preferredDisplayMode = .allVisible
         
         let navigationController = splitViewController!.viewControllers[splitViewController!.viewControllers.count-1] as! UINavigationController
         navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController!.displayModeButtonItem
         splitViewController!.delegate = self
         
-
+        
         let masterNavigationController = splitViewController!.viewControllers[0] as! UINavigationController
-        let controller = masterNavigationController.topViewController as! MasterViewController
-        controller.managedObjectContext = self.persistentContainer.viewContext
-        return true
+        
+        if name == "Master" {
+             let controller = masterNavigationController.topViewController as! MasterViewController
+            controller.managedObjectContext = self.persistentContainer.viewContext
+        }
+        else if name == "DoseSplitViewController" {
+             let controller = masterNavigationController.topViewController as! DoseViewController
+//            controller.managedObjectContext = self.persistentContainer.viewContext
+        }
+        
+        
+       
+        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

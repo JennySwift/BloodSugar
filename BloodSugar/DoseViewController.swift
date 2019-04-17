@@ -7,6 +7,7 @@
 //
 
 import UIKit
+//import CoreData
 
 class DoseViewController: UITableViewController {
 
@@ -19,6 +20,7 @@ class DoseViewController: UITableViewController {
     
     @IBOutlet weak var totalInsulinLabel: UILabel!
     
+//    var managedObjectContext: NSManagedObjectContext? = nil
     
     var bloodSugarNow = 7.4
     var bloodSugarGoal = 3.8
@@ -31,6 +33,7 @@ class DoseViewController: UITableViewController {
     
     
     override func viewDidLoad() {
+        print("dose view loaded")
         super.viewDidLoad()
         
         updateValues()
@@ -140,5 +143,9 @@ class DoseViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "showDoseDetail", sender: self)
+    }
 
 }

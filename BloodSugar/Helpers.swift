@@ -76,5 +76,3 @@ class Helpers {
         UIPasteboard.general.string = string
     }
 }
-
-
