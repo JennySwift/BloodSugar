@@ -53,6 +53,7 @@
 		BD8B1331226FF67300E90FDB /* BloodSugar 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "BloodSugar 3.xcdatamodel"; sourceTree = "<group>"; };
 		BD8B1332226FFAEE00E90FDB /* Figure+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Figure+CoreDataClass.swift"; sourceTree = "<group>"; };
 		BD8B1333226FFAEE00E90FDB /* Figure+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Figure+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BD8B13362270078900E90FDB /* BloodSugar 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "BloodSugar 4.xcdatamodel"; sourceTree = "<group>"; };
 		BDCCF86921F5DE1E00FBCC9C /* BloodSugar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BloodSugar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDCCF86C21F5DE1E00FBCC9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDCCF86F21F5DE1E00FBCC9C /* BloodSugar.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BloodSugar.xcdatamodel; sourceTree = "<group>"; };
@@ -643,11 +644,12 @@
 		BDCCF86E21F5DE1E00FBCC9C /* BloodSugar.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				BD8B13362270078900E90FDB /* BloodSugar 4.xcdatamodel */,
 				BD8B1331226FF67300E90FDB /* BloodSugar 3.xcdatamodel */,
 				BDCCF8A321F6B57E00FBCC9C /* BloodSugar 2.xcdatamodel */,
 				BDCCF86F21F5DE1E00FBCC9C /* BloodSugar.xcdatamodel */,
 			);
-			currentVersion = BD8B1331226FF67300E90FDB /* BloodSugar 3.xcdatamodel */;
+			currentVersion = BD8B13362270078900E90FDB /* BloodSugar 4.xcdatamodel */;
 			path = BloodSugar.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

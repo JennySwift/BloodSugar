@@ -23,18 +23,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         
         var splitViewController:UISplitViewController? = nil
         for viewController in tabBarViewController.viewControllers! {
+            splitViewController = viewController as? UISplitViewController
             if viewController.title == "Master" {
-                splitViewController = viewController as? UISplitViewController
-                
                 if let splitViewController = splitViewController {
                     useSplitViewController(splitViewController: splitViewController, name: "Master")
                 }
             }
             if viewController.title == "DoseSplitViewController" {
-//                splitViewController = viewController as? UISplitViewController
-//                if let splitViewController = splitViewController {
-//                    useSplitViewController(splitViewController: splitViewController, name: "DoseSplitViewController")
-//                }
+//               useSplitViewController(splitViewController: splitViewController, name: "DoseSplitViewController")
+//
+                let doseNavControllerOne = splitViewController!.viewControllers[0] as! UINavigationController
+                
+                let controller = doseNavControllerOne.topViewController as! DoseViewController
+                controller.managedObjectContext = self.persistentContainer.viewContext
+            
             }
         }
         
@@ -53,12 +55,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         
         let masterNavigationController = splitViewController!.viewControllers[0] as! UINavigationController
         
+        
+        
         if name == "Master" {
              let controller = masterNavigationController.topViewController as! MasterViewController
             controller.managedObjectContext = self.persistentContainer.viewContext
         }
         else if name == "DoseSplitViewController" {
-             let controller = masterNavigationController.topViewController as! DoseViewController
+            print("entering else if...")
+            
+//             let controller = masterNavigationController.topViewController as! DoseViewController
 //            controller.managedObjectContext = self.persistentContainer.viewContext
         }
         

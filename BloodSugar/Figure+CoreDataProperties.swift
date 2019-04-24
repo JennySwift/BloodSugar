@@ -17,13 +17,6 @@ extension Figure {
         return NSFetchRequest<Figure>(entityName: "Figure")
     }
 
-    @NSManaged public var bloodSugarStart: Double
-    @NSManaged public var bloodSugarGoal: Double
-    @NSManaged public var totalNetCarbs: Double
-    @NSManaged public var totalMinutesWalking: Double
-    @NSManaged public var netCarbsPerInsulinUnit: Double
-    @NSManaged public var totalInsulin: Double
-    @NSManaged public var bloodSugarEnd: Double
-    @NSManaged public var correctionFactor: Double
-
+    @NSManaged public var name: String
+    @NSManaged public var value: Double
 }
