@@ -25,7 +25,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             self.copyNetCarbsToClipboard()
         }))
         alert.addAction(UIAlertAction(title: "Reset", style: .default, handler: { (UIAlertAction) in
-            self.reset()
+            self.confirmReset()
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
@@ -208,6 +208,19 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         let netCarbs = Helpers.roundValue(calculateTotalNetCarbs(), x: 1)
         Helpers.copyToClipboard(string: Helpers.decimalToString(decimal: netCarbs))
         Helpers.playSound()
+    }
+    
+    func confirmReset() -> Void {
+        let alert = UIAlertController(title: "Confirm Reset", message: "Are you sure?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (UIAlertAction) in
+            self.reset()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true, completion:  {
+            
+        })        
     }
     
     func reset() -> Void {
